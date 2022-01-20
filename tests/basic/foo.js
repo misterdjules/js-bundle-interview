@@ -1,1 +1,5 @@
-module.exports = { foo: () => {} };
+module.exports = {
+  foo: () => {
+    console.log("foo");
+  },
+};

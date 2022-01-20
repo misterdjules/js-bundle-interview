@@ -9,7 +9,11 @@ process.on("unhandledRejection", (rejectionErr) => {
 async function testCase(entryPoint: string) {
   try {
     const entryPointAbsPath = path.join(__dirname, entryPoint);
-    const depsTree = { sourceFileName: entryPoint, children: [] };
+    const depsTree = {
+      sourceFileName: entryPoint,
+      sourceContent: "",
+      children: [],
+    };
     await findDeps(entryPointAbsPath, depsTree, new Map<string, string[]>());
     console.log("depsTree:", util.inspect(depsTree, { depth: null }));
   } catch (err) {
